@@ -1,0 +1,47 @@
+/*SETTAGGI GENERALI*/
+@font-face {
+    font-family: NetflixSans;
+    src: url(/public/fonts/NetflixSans-Regular.otf);
+}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,p,a,.btn{
+    font-family: NetflixSans, sans-serif;
+}
+
+
+
+
+/*NAVBAR COMPONENT CSS*/
+.navbar-logo{
+    height: 5vh;
+    width: 5vh;
+}
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+}
+.btn-navbar{
+    width: 18vh;
+}
+
+
+
+/*HEADER COMPONENT CSS*/
+.header-bg{
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.432) , rgb(0, 0, 0)) , url(/public/media/header_image.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.btn-header{
+    width: 20vh;
+}
+.header-content{
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Imposta il numero massimo di linee a 4 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 8em; /* Altezza massima di 4 righe di testo con spazio extra */
+}
