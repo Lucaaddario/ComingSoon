@@ -1,4 +1,6 @@
-/*SETTAGGI GENERALI*/
+/*---------------
+SETTAGGI GENERALI
+-----------------*/
 @font-face {
     font-family: NetflixSans;
     src: url(/public/fonts/NetflixSans-Regular.otf);
@@ -10,7 +12,9 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,p,a,.btn{
 
 
 
-/*NAVBAR COMPONENT CSS*/
+/*-------------------
+NAVBAR COMPONENTS CSS
+--------------------*/
 .navbar-logo{
     height: 5vh;
     width: 5vh;
@@ -26,7 +30,9 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,p,a,.btn{
 
 
 
-/*HEADER COMPONENT CSS*/
+/*--------------------
+HEADER COMPONENTS CSS
+---------------------*/
 .header-bg{
     height: 80vh;
     background: linear-gradient(rgba(0, 0, 0, 0.432) , rgb(0, 0, 0)) , url(/public/media/header_image.jpg);
@@ -44,4 +50,34 @@ h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,p,a,.btn{
     -webkit-box-orient: vertical;
     overflow: hidden;
     max-height: 8em; /* Altezza massima di 4 righe di testo con spazio extra */
+}
+
+
+
+/*---------------------
+CREATE_PRODUCT_PAGE CSS
+----------------------*/
+.title-create-product{
+    letter-spacing: 1.5px;
+}
+.form-column{
+    width: 60vh;
+    height: 70vh;
+    background-color: #16191b;
+}
+/* Stile generico per tutti gli input */
+input {
+   width: 100%;
+   box-sizing: border-box;
+   padding: 10px;
+}
+/* Stile specifico per il menu a discesa (select) */
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+/* Stile del testo quando nessun file è selezionato */
+input[type="file"]:not(:placeholder-shown) {
+    color: #ffffff; /* Sostituisci con il colore desiderato */
 }
