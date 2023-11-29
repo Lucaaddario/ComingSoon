@@ -9,6 +9,11 @@ use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('auth');
+    }
     //Funzione vista form creazione prodotto
     public function create_product(){
         return view('create_product');

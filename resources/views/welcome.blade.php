@@ -1,6 +1,11 @@
 <x-layout>
 
     {{-- INIZIO HEADER --}}
+    @if(session('error'))
+    <div class="alert alert-danger mb-0">
+        {{ session('error') }}
+    </div>
+    @endif
     <header>
         <div class="p-5 header-bg">
 
@@ -27,18 +32,18 @@
                     <div class="col-10 col-md-8 col-lg-6 col-xl-4 col-xl-4">
                         <p class="ms-3 mt-3 header-content">
                             {{Str::limit("One Piece è un avvincente manga e anime creato da Eiichiro Oda. La storia segue Monkey D. Luffy, un giovane con il desiderio di diventare il Re dei Pirati, mentre si imbarca in un'epica avventura attraverso mari pericolosi. Luffy ottiene poteri da un frutto...", 250)}}
+                        </div>
+                        <a class="btn btn-header btn-light ms-3 mt-2 px-3 py-2" href="#!" role="button">
+                            <i class="fa-solid fa-play text-black me-2"></i>
+                            Riproduci
+                        </a>
+                        <a class="btn btn-header btn-success ms-3 mt-2 px-3 py-2" href="#!" role="button">
+                            Informazioni
+                        </a>
                     </div>
-                    <a class="btn btn-header btn-light ms-3 mt-2 px-3 py-2" href="#!" role="button">
-                        <i class="fa-solid fa-play text-black me-2"></i>
-                        Riproduci
-                    </a>
-                    <a class="btn btn-header btn-success ms-3 mt-2 px-3 py-2" href="#!" role="button">
-                        Informazioni
-                    </a>
                 </div>
             </div>
-        </div>
-    </header>
-    {{-- FINE HEADER --}}
+        </header>
+        {{-- FINE HEADER --}}
 
-</x-layout>
+    </x-layout>

@@ -22,6 +22,7 @@
           <a class="nav-link" href="#">Anime</a>
         </li>
 
+        @if (Auth::user() && Auth::user()->isAdmin === 1)
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle {{Route::is('create_product') ? "active" : ""}}" href="#" data-bs-toggle="dropdown" aria-expanded="false">
             Admin
@@ -33,6 +34,7 @@
               </li>
             </ul>
           </li>
+          @endif
         </ul>
 
 
@@ -68,7 +70,7 @@
               <li class="nav-item">
                 <form method="POST" action="{{route('logout')}}">
                   @csrf
-                    <button type="submit" class="bg-dark nav-link border-none fw-bold" >
+                    <button type="submit" class="ms-2 ms-lg-0 bg-dark nav-link border-none fw-bold" >
                       Logout
                     </button>
                 </form>
