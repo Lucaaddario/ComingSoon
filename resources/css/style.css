@@ -25,7 +25,12 @@ NAVBAR COMPONENTS CSS
     box-shadow: none;
 }
 .btn-navbar{
-    width: 18vh;
+padding: 0;
+height: 5vh;
+width: 20vh;
+}
+.btn-logout{
+    text-decoration: none !important;
 }
 
 
@@ -80,4 +85,34 @@ select {
 /* Stile del testo quando nessun file è selezionato */
 input[type="file"]:not(:placeholder-shown) {
     color: #ffffff; /* Sostituisci con il colore desiderato */
+}
+
+
+
+/*---------------------
+REGISTER FORM CSS
+----------------------*/
+.birthday-input{
+    width: 22.2vh;
+}
+.gender-input{
+    width: 22.5vh;
+    height: 6.25vh;
+}
+.register-column{
+    width: 60vh;
+    background-color: #16191b;
+}
+
+
+
+/*---------------------
+LOGIN FORM CSS
+----------------------*/
+.spanAccount{
+font-weight: 100;
+font-size: 12px;
+}
+.inputLogin{
+    width: 48vh !important;
 }

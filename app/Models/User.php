@@ -20,8 +20,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'gender',
+        'birthday',
+        'username',
         'email',
         'password',
+        'isAdmin'
     ];
 
     public function products(){

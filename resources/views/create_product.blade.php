@@ -9,8 +9,7 @@
                     <div class="col-12">
                         <h1 class="fs-4 text-light text-uppercase mb-3">crea prodotto</h1>
                     </div>
-                </div>
-                {{-- INIZIO FORM STRUCTURE --}}
+                </div>{{-- INIZIO FORM STRUCTURE --}}
                 <form method="POST" action="{{route('store_product')}}" enctype="multipart/form-data">
                     @csrf
                     {{-- TITLE INPUT --}}
@@ -45,11 +44,12 @@
                     </div>
                     {{-- SUBMIT BUTTON --}}
                     <div class="mt-3 d-flex justify-content-center mt-4">
-                        <button type="submit" class="btn btn-navbar btn-success px-4 py-3 mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1 w-75">
+                        <button type="submit" class="btn btn-success px-4 py-3 mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1 w-75">
                             Crea Prodotto
                         </button>
                     </div>
                 </form>
+
             </div>
         </div>
     </section>
