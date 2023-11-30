@@ -39,9 +39,9 @@
 
                 <!-- SWIPER ULTIMI TITOLI --->
                 <div class="swiper mySwiper p-3 mt-2">
-                    <h5 class="text-white ms-2">Ultimi Film</h5>
+                    <h5 class="text-white ms-2">Ultime Series</h5>
                     <div class="swiper-wrapper">
-                        @foreach ($productsByFilms as $product)
+                        @foreach ($productsBySeries as $product)
                         <div class="swiper-slide me-5">
                             <a href="">
                                 <img src="{{Storage::url($product->image)}}"/>
@@ -56,13 +56,13 @@
 
         <section class="container-fluid bg-lastfilm p-3">
             <div class="row p-4">
-                <!-- SWIPER FILM THRILLER-->
+                <!-- SWIPER SERIES THRILLER-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Horror</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByHorror->isEmpty())
-                            @foreach ($filmsByHorror as $product)
+                            @if (!$seriesByHorror->isEmpty())
+                            @foreach ($seriesByHorror as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -76,13 +76,13 @@
                     </div>
                 </div>
 
-                <!-- SWIPER FILM DRAMA-->
+                <!-- SWIPER SERIES DRAMA-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Dramatic</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByDrama->isEmpty())
-                            @foreach ($filmsByDrama as $product)
+                            @if (!$seriesByDrama->isEmpty())
+                            @foreach ($seriesByDrama as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -97,13 +97,13 @@
                 </div>
 
 
-                <!-- SWIPER FILM DRAMA-->
+                <!-- SWIPER SERIES DRAMA-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Comedy</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByComedy->isEmpty())
-                            @foreach ($filmsByComedy as $product)
+                            @if (!$seriesByComedy->isEmpty())
+                            @foreach ($seriesByComedy as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -118,13 +118,13 @@
                 </div>
 
 
-                <!-- SWIPER FILM THRILLER-->
+                <!-- SWIPER SERIES THRILLER-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Thriller</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByThriller->isEmpty())
-                            @foreach ($filmsByThriller as $product)
+                            @if (!$seriesByThriller->isEmpty())
+                            @foreach ($seriesByThriller as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -140,13 +140,13 @@
 
 
 
-                <!-- SWIPER FILM EROTIC-->
+                <!-- SWIPER SERIES EROTIC-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Erotic</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByErotic->isEmpty())
-                            @foreach ($filmsByErotic as $product)
+                            @if (!$seriesByErotic->isEmpty())
+                            @foreach ($seriesByErotic as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -161,13 +161,13 @@
                 </div>
 
 
-                <!-- SWIPER FILM FANTASY-->
+                <!-- SWIPER SERIES FANTASY-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Fantasy</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByFantasy->isEmpty())
-                            @foreach ($filmsByFantasy as $product)
+                            @if (!$seriesByFantasy->isEmpty())
+                            @foreach ($seriesByFantasy as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -182,13 +182,13 @@
                 </div>
 
 
-                <!-- SWIPER FILM SCIENCE-->
+                <!-- SWIPER SERIES SCIENCE-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Science</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByScience->isEmpty())
-                            @foreach ($filmsByScience as $product)
+                            @if (!$seriesByScience->isEmpty())
+                            @foreach ($seriecByScience as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -203,13 +203,13 @@
                 </div>
 
 
-                <!-- SWIPER FILM ROMANCE-->
+                <!-- SWIPER SERIES ROMANCE-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
                         <h5 class="text-white ms-2">Romance</h5>
                         <div class="swiper-wrapper">
-                            @if (!$filmsByRomance->isEmpty())
-                            @foreach ($filmsByRomance as $product)
+                            @if (!$seriesByRomance->isEmpty())
+                            @foreach ($seriesByRomance as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>

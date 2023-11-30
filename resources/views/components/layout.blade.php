@@ -23,6 +23,12 @@
     @if (Route::is('films_index'))
     @vite (['resources/css/app.css' , 'resources/js/films_index.js'])
     @endif
+    @if (Route::is('series_index'))
+    @vite (['resources/css/app.css' , 'resources/js/series_index.js'])
+    @endif
+    @if (Route::is('anime_index'))
+    @vite (['resources/css/app.css' , 'resources/js/anime_index.js'])
+    @endif
 </head>
 
 <body>

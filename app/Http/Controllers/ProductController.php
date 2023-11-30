@@ -18,15 +18,92 @@ class ProductController extends Controller
 
     //Funzione della rotta films_index
     public function films_index(){
-        $productsByFilms = Product::where('category' , 'film')->get();
-        $filmsByThriller = $productsByFilms->filter(function ($film) {
-            return $film->subcategories->contains('name', 'Thriller');
+        $productsByFilms = Product::where('category' , 'film')->orderBy('created_at' , 'desc')->get();
+        $filmsByHorror = $productsByFilms->filter(function ($film) {
+            return $film->subcategories->contains('name', 'Horror');
         });
-        $filmsByFantasy = $productsByFilms->filter(function ($film) {
+        $filmsByDrama = $productsByFilms->filter(function ($film) {
+            return $film->subcategories->contains('name' , 'Drama');
+        });
+        $filmsByComedy = $productsByFilms->filter(function ($film) {
+            return $film->subcategories->contains('name' , 'Comedy');
+        });
+        $filmsByThriller = $productsByFilms->filter(function ($film) {
+             return $film->subcategories->contains('name' , 'Thriller');
+        });
+        $filmsByErotic = $productsByFilms->filter(function($film) {
+            return $film->subcategories->contains('name' , 'Eroitc');
+        });
+        $filmsByFantasy = $productsByFilms->filter(function($film) {
             return $film->subcategories->contains('name' , 'Fantasy');
         });
+        $filmsByScience = $productsByFilms->filter(function($film) {
+            return $film->subcategories->contains('name' , 'Science');
+        });
+        $filmsByRomance = $productsByFilms->filter(function($film) {
+            return $film->subcategories->contains('name' , 'Romance');
+        });
+        return view ('films_index' , compact('productsByFilms' , 'filmsByFantasy' , 'filmsByComedy' , 'filmsByThriller' , 'filmsByErotic', 'filmsByFantasy', 'filmsByScience', 'filmsByRomance', 'filmsByHorror' , 'filmsByDrama'));
+    }
 
-        return view ('films_index' , compact('productsByFilms' , 'filmsByThriller' , 'filmsByFantasy'));
+    //Funzione della rotta series_index
+    public function series_index(){
+        $productsBySeries = Product::where('category' , 'series')->orderBy('created_at' , 'desc')->get();
+        $seriesByHorror = $productsBySeries->filter(function ($serie) {
+            return $serie->subcategories->contains('name', 'Horror');
+        });
+        $seriesByDrama = $productsBySeries->filter(function ($serie) {
+            return $serie->subcategories->contains('name' , 'Drama');
+        });
+        $seriesByComedy = $productsBySeries->filter(function ($serie) {
+            return $serie->subcategories->contains('name' , 'Comedy');
+        });
+        $seriesByThriller = $productsBySeries->filter(function ($serie) {
+             return $serie->subcategories->contains('name' , 'Thriller');
+        });
+        $seriesByErotic = $productsBySeries->filter(function($serie) {
+            return $serie->subcategories->contains('name' , 'Eroitc');
+        });
+        $seriesByFantasy = $productsBySeries->filter(function($serie) {
+            return $serie->subcategories->contains('name' , 'Fantasy');
+        });
+        $seriesByScience = $productsBySeries->filter(function($serie) {
+            return $serie->subcategories->contains('name' , 'Science');
+        });
+        $seriesByRomance = $productsBySeries->filter(function($serie) {
+            return $serie->subcategories->contains('name' , 'Romance');
+        });
+        return view ('series_index' , compact('productsBySeries' , 'seriesByFantasy' , 'seriesByComedy' , 'seriesByThriller' , 'seriesByErotic', 'seriesByFantasy', 'seriesByScience', 'seriesByRomance', 'seriesByHorror', 'seriesByDrama' ));
+    }
+
+    //Funzione della rotta anime_index
+    public function anime_index(){
+        $productsByAnime = Product::where('category' , 'Anime')->orderBy('created_at' , 'desc')->get();
+        $animeByHorror = $productsByAnime->filter(function ($anime) {
+            return $anime->subcategories->contains('name', 'Horror');
+        });
+        $animeByDrama = $productsByAnime->filter(function ($anime) {
+            return $anime->subcategories->contains('name' , 'Drama');
+        });
+        $animeByComedy = $productsByAnime->filter(function ($anime) {
+            return $anime->subcategories->contains('name' , 'Comedy');
+        });
+        $animeByThriller = $productsByAnime->filter(function ($anime) {
+             return $anime->subcategories->contains('name' , 'Thriller');
+        });
+        $animeByErotic = $productsByAnime->filter(function($anime) {
+            return $anime->subcategories->contains('name' , 'Eroitc');
+        });
+        $animeByFantasy = $productsByAnime->filter(function($anime) {
+            return $anime->subcategories->contains('name' , 'Fantasy');
+        });
+        $animeByScience = $productsByAnime->filter(function($anime) {
+            return $anime->subcategories->contains('name' , 'Science');
+        });
+        $animeByRomance = $productsByAnime->filter(function($anime) {
+            return $anime->subcategories->contains('name' , 'Romance');
+        });
+        return view ('anime_index' , compact('productsByAnime' , 'animeByFantasy' , 'animeByComedy' , 'animeByThriller' , 'animeByErotic', 'animeByFantasy', 'animeByScience', 'animeByRomance' , 'animeByHorror' , 'animeByDrama' ));
     }
 
     //Funzione vista form creazione prodotto

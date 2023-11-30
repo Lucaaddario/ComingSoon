@@ -13,13 +13,13 @@
           <a class="nav-link {{Route::is('welcome') ? "active" : ""}}" href="{{route('welcome')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Serie TV</a>
+          <a class="nav-link {{Route::is('series_index') ? "active" : ""}}" href="{{route('series_index')}}">Serie TV</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{Route::is('films_index') ? "active" : ""}}" href="{{route('films_index')}}">Film</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Anime</a>
+          <a class="nav-link {{Route::is('anime_index') ? "active" : ""}}" href="{{route('anime_index')}}">Anime</a>
         </li>
 
         @if (Auth::user() && Auth::user()->isAdmin === 1)

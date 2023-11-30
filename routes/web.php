@@ -13,3 +13,9 @@ Route::post('store-prodotto' , [ProductController::class , 'store_product'])->na
 
 //Rotta dei film
 Route::get('/films' , [ProductController::class , 'films_index'])->name('films_index');
+
+//Rotta delle serie TV
+Route::get('/tvseries' , [ProductController::class , 'series_index'])->name('series_index');
+
+//Rotta degli Anime
+Route::get('/anime' , [ProductController::class , 'anime_index'])->name('anime_index');
