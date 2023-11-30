@@ -16,7 +16,7 @@
           <a class="nav-link" href="#">Serie TV</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Film</a>
+          <a class="nav-link {{Route::is('films_index') ? "active" : ""}}" href="{{route('films_index')}}">Film</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Anime</a>

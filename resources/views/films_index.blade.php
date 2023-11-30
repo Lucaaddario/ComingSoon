@@ -45,9 +45,9 @@
 
                 <!-- SWIPER ULTIMI TITOLI --->
                 <div class="swiper mySwiper p-3 mt-2">
-                    <h5 class="text-white ms-2">Ultimi Titoli</h5>
+                    <h5 class="text-white ms-2">Ultimi Film</h5>
                     <div class="swiper-wrapper">
-                        @foreach ($products as $product)
+                        @foreach ($productsByFilms as $product)
                         <div class="swiper-slide me-5">
                             <a href="">
                                 <img src="{{Storage::url($product->image)}}"/>
@@ -62,12 +62,12 @@
 
         <section class="container-fluid bg-lastfilm p-3">
             <div class="row p-4">
-                <!-- SWIPER ULTIMI FILM-->
+                <!-- SWIPER FILM THRILLER-->
                 <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
-                        <h5 class="text-white ms-2">Ultimi Film</h5>
+                        <h5 class="text-white ms-2">Thriller</h5>
                         <div class="swiper-wrapper">
-                            @foreach ($productsByFilms as $product)
+                            @foreach ($filmsByThriller as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -78,12 +78,12 @@
                     </div>
                 </div>
 
-                <!-- SWIPER ULTIME SERIES-->
-                <div class="col-12 p-3 ">
+                <!-- SWIPER FILM FANTASY-->
+                <div class="col-12 p-3">
                     <div class="swiper mySwiper p-3 mt-2">
-                        <h5 class="text-white ms-2">Ultime Serie TV</h5>
+                        <h5 class="text-white ms-2">Fantasy</h5>
                         <div class="swiper-wrapper">
-                            @foreach ($productsBySeries as $product)
+                            @foreach ($filmsByFantasy as $product)
                             <div class="swiper-slide me-5">
                                 <a href="">
                                     <img src="{{Storage::url($product->image)}}"/>
@@ -94,46 +94,6 @@
                     </div>
                 </div>
 
-
-                <!-- SWIPER ULTIME ANIME-->
-                <div class="col-12 p-3 ">
-                    <div class="swiper mySwiper p-3 mt-2">
-                        <h5 class="text-white ms-2">Ultimi Anime</h5>
-                        <div class="swiper-wrapper">
-                            @foreach ($productsByAnime as $product)
-                            <div class="swiper-slide me-5">
-                                <a href="">
-                                    <img src="{{Storage::url($product->image)}}"/>
-                                </a>
-                            </div>
-                            @endforeach
-                            <div class="swiper-slide me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                            </div>
-                            <div class="swiper-slide  me-5">
-                                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>

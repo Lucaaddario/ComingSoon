@@ -1,66 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## 1. SETUP
+1. Abbiamo configurato il nostro composer, npm, env, app.css, app.js e components layout.
+2. Abbiamo pubblicato la storage con php artisan storage:link.
+3. Abbiamo iniziato a lavorare su tutta la parte grafica front-end creando i componenti e le pagine.
+## 2. CREAZIONE PAGINA CREA PRODOTTO E LA SUA CONFIGURAZIONE
+4. Abbiamo creato un pagina per creare un prodotto, con la sua funzione product_create di tipo GET e abbiamo creato una funzione di tipo POST store_product che prenderà un request (creata request personalizzata) all'interno.
+5. Abbiamo creato la tabella products nel database con una colonna user_id che si collega alla foreign key 'id' di 'users'.
+6. Abbiamo creato il modello product e collegato i modelli user e product con hasMany e belongsTo.
+7. Abbiamo catturato i dati della richiesta nel database con:
+$product = Product::create(['title'=>$request->input('title'),'category'=>$request->input('category'),'description'=>$request->input('description'),// 'user_id'=>Auth::user()->id,]);if ($request->image) {$product->image = $request->file('image')->store('public/products/image');$product->save();}
+8. Abbiamo ritornato un redirect ad una rotta.
+9. Abbiamo trasferito tutti i prodotti nella vista 'welcome' con $products = Product::All()->sortByDesc('created_at'); return view('welcome' , compact('products'));
+## 3. CREAZIONE REGISTER LOGIN LOGOUT CON FORTIFY
+10. Abbiamo creato un form per la registrazione e per il login e abbiamo, seguendo la documentazione, configurato fortify. Sostituendo in RouteServiceProvider "/home" con "/" ed abbiamo inserito in app.php in Service Provider la stringa         App\Providers\FortifyServiceProvider::class.
+11. Abbiamo collegato il form di registrazione all'action /register e il login all'action /login.
+12. Abbiamo collegato il link del logout ad un form con action /logout.
+## 4. IMPLEMENTAZIONE ISADMIN CON MIDDLEWARE AUTH E ADMIN
+13. Abbiamo implementate nella sezione users un campo isAdmin che è 1 se l'utente è admin e 0 se non lo è.
+14. Abbiamo inserito nel controller article un middleware di default Auth che è public function __construct()
+    {$this->middleware('auth');} che vieta l'accesso a tutti i membri non loggati.
+15. Abbiamo creato un middleware custom con php artisan make:middleware isAdmin.
+16. All'interno del middleware abbiamo fatto un controllo if(Auth::user(){if(Auth::user()->isAdmin === 1){
+return $next($request);}}) Ritornando un redirect alla welcome con un messaggio di errore. In questo caso abbiamo vietato l'accesso a tutti coloro i quali sono loggati MA NON SONO ADMIN.
+17. Abbiamo registrato il middleware nel Kernel nel protected middlewareAlias = 'admin' => \App\Http\Middleware\IsAdmin::class,
+18. Nel controller di product, abbiamo aggiunto il nuovo middleware nel constructor-> public function __construct()
+    {$this->middleware('auth'); $this->middleware('admin');}
+## 5. CREAZIONE DB MANY TO MANY
+1. Creata tabella subcategories ed il suo modello con il fillable 'name'
+2. Nella tabella abbiamo inserito il campo name e fuori dallo schermo abbiamo creato un $subcategories = [] con all'interno tutte le sottocategorie per un prodotto. Con un for each ($subcategories as $subcategory) abbiamo creato una sottocateria tramite il modello con Subcategory::create(['name'=>$subcategory]);
+3. Abbiamo migrato la nuova tabella ed adesso nel database abbiamo la tabella subcategories con tutte le nostre sottocategorie.
+4. Abbiamo creato una tabella PIVOT tra product e subcategory con $php artisan make:migration create_product_subcategory_table - Il nome della tabella PIVOT viene scritto con le tabelle collegate al singolare e in ordine alfabetico (product_subcategory);
+5. Abbiamo creato all'interno della tabella PIVOT una colonna per il product_id ed una colonna per il subcategory_id. Abbiamo assegnato una foreign key ad entrambe le colonne che si collegano ai suoi rispettivi
+ID.Schema::create('product_subcategory', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('subcategory_id');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->timestamps();
+        });
+6. Nei rispettivi modelli PRODUCT e SUBCATEGORY abbiamo inserite le funzioni per collegarli tra di loro. Nel modello PRODUCT abbiamo messo la funzione subcategories belongstoMany e lo stesso nel modello SUBCATEGORY una funzione products:
+public function subcategories(){
+        return $this->belongsToMany(Subcategory::class);
+    }
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
+7. Abbiamo richiamato nel controller ProductController nella funzione create_product che ritorna la vista del form di creazione prodotto anche la variabile $subcategories = Subcategory::All() e ritornando anche la sua compact.
+8. Nella funzione store_product dopo aver creato il prodotto salviamo anche le sottocategorie nel DB con $product->subcategories()->attach($request->subcategories)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 6. FRONTEND MANY TO MANY
+1. Abbiamo modificato il nostro form di creazione prodotti andando ad aggiungere per ogni $subcategories as $subcategory una checkbox: richiamando $subcategory->name nell'id e nella label e $subcategory->id nella value;

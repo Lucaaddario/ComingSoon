@@ -1,4 +1,3 @@
-
 //SWIPER CAROUSEL WELCOME
 var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",

@@ -39,7 +39,8 @@ width: 20vh;
 HEADER COMPONENTS CSS
 ---------------------*/
 .header-bg{
-    height: 80vh;
+    min-height: 80vh;
+    max-height: 85vh;
     background: linear-gradient(rgba(0, 0, 0, 0.432) , rgb(0, 0, 0)) , url(/public/media/header_image.jpg);
     background-repeat: no-repeat;
     background-position: center center;
@@ -56,8 +57,37 @@ HEADER COMPONENTS CSS
     overflow: hidden;
     max-height: 8em; /* Altezza massima di 4 righe di testo con spazio extra */
 }
+.carousel-cstm{
+    width: 100%;
+    height: 10vh;
+}
+
+/* SWIPER HEADER CSS */
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+  }
+
+  .swiper-slide img {
+    width: 228px;
+    height: 170px;
+    display: block;
+    width: 100%;
+  }
 
 
+  /* SEZIONE ULTIMI FILM DELLA WELCOME */
+.bg-lastfilm{
+    background-color: #020201;
+}
 
 /*---------------------
 CREATE_PRODUCT_PAGE CSS
@@ -67,7 +97,7 @@ CREATE_PRODUCT_PAGE CSS
 }
 .form-column{
     width: 60vh;
-    height: 70vh;
+    min-height: 70vh;
     background-color: #16191b;
 }
 /* Stile generico per tutti gli input */
@@ -86,6 +116,12 @@ select {
 input[type="file"]:not(:placeholder-shown) {
     color: #ffffff; /* Sostituisci con il colore desiderato */
 }
+textarea{
+    height: 10vh;
+    resize: none;
+    width: 100%;
+}
+
 
 
 
