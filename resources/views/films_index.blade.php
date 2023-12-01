@@ -20,7 +20,7 @@
 
         <div class="d-flex justify-content-start align-items-center h-100">
             <div class="text-white contentheader">
-                <h1 class="fw-bold ms-2 display-6 text-uppercase" id="titleHeader">Coming Soon</h1>
+                <h1 class="fw-bold ms-2 display-6 text-uppercase ms-3 mt-3 ms-lg-3" id="titleHeader">Coming Soon</h1>
                 <div class="col-10 col-md-8 col-lg-6 col-xl-4 col-xl-4">
                     <p class="ms-3 mt-3 header-content" id="contentHeader">
                         "Benvenuto nel mondo affascinante dell'anime e delle serie TV più celebri! Il nostro sito è la destinazione ideale per gli amanti dell'animazione giapponese e delle migliori produzioni televisive, offrendoti un'esperienza unica. @if (Auth::user()) Benvenuto {{Auth::user()->name}}! @endif

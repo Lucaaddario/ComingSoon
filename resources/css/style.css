@@ -54,7 +54,12 @@ HEADER COMPONENTS CSS
     height: 10vh;
 }
 #titleHeader{
-    width: 35%;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Imposta il numero massimo di linee a 4 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 8em; /* Altezza massima di 4 righe di testo con spazio extra */
 }
 .contentheader{
     min-height: 40vh;
