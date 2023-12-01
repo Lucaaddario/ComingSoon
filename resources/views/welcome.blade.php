@@ -7,7 +7,7 @@
     @endif
     {{-- INIZIO HEADER --}}
     <header>
-        <header class="p-5" style="background: linear-gradient(rgba(0, 0, 0, 0.432), rgb(0, 0, 0)), url('media/header_default.jpg'); min-height: 85vh; max-height: 85vh; background-repeat: no-repeat; background-position: center center; background-size: contain;"  id="header">
+        <header class="p-5" style="background: linear-gradient(rgba(0, 0, 0, 0.432), rgb(0, 0, 0)), url('media/header_default.jpg'); min-height: 85vh; max-height: 85vh; background-repeat: no-repeat; background-position: center center; background-size: 100% 100%;"  id="header">
 
             <div class="row text-white text-start text-lg-end ms-2 ms-lg-0 me-lg-3 fs-3">
                 <div class="col-12">
@@ -27,10 +27,11 @@
 
             <div class="d-flex justify-content-start align-items-center h-100">
                 <div class="text-white contentheader">
-                    <h1 class="fw-bold ms-2 display-6 text-uppercase" id="titleHeader">One Piece</h1>
+                    <h1 class="fw-bold ms-2 display-6 text-uppercase" id="titleHeader">Coming Soon</h1>
                     <div class="col-10 col-md-8 col-lg-6 col-xl-4 col-xl-4">
                         <p class="ms-3 mt-3 header-content" id="contentHeader">
-                            {{Str::limit("One Piece è un avvincente manga e anime creato da Eiichiro Oda. La storia segue Monkey D. Luffy, un giovane con il desiderio di diventare il Re dei Pirati, mentre si imbarca in un'epica avventura attraverso mari pericolosi. Luffy ottiene poteri da un frutto...", 250)}}
+                            "Benvenuto nel mondo affascinante dell'anime e delle serie TV più celebri! Il nostro sito è la destinazione ideale per gli amanti dell'animazione giapponese e delle migliori produzioni televisive, offrendoti un'esperienza unica. @if (Auth::user()) Benvenuto {{Auth::user()->name}}! @endif
+                        </p>
                         </div>
                         <a class="btn btn-header btn-light ms-3 mt-2 px-3 py-2" href="#!" role="button">
                             <i class="fa-solid fa-play text-black me-2"></i>

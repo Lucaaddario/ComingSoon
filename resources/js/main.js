@@ -10,7 +10,7 @@ var swiper = new Swiper(".mySwiper", {
     stretch: 0,
     depth: 0,
     modifier: 0,
-    slideShadows: false,
+    slideShadows: true,
   },
 });
 
