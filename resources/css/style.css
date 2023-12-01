@@ -25,9 +25,9 @@ NAVBAR COMPONENTS CSS
     box-shadow: none;
 }
 .btn-navbar{
-padding: 0;
-height: 5vh;
-width: 20vh;
+    padding: 0;
+    height: 5vh;
+    width: 20vh;
 }
 .btn-logout{
     text-decoration: none !important;
@@ -38,14 +38,6 @@ width: 20vh;
 /*--------------------
 HEADER COMPONENTS CSS
 ---------------------*/
-.header-bg{
-    min-height: 80vh;
-    max-height: 85vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.432) , rgb(0, 0, 0)) , url(/public/media/header_image.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-}
 
 .btn-header{
     width: 20vh;
@@ -61,30 +53,36 @@ HEADER COMPONENTS CSS
     width: 100%;
     height: 10vh;
 }
-
+#titleHeader{
+    width: 35%;
+}
+.contentheader{
+    min-height: 40vh;
+    max-height: 40vh;
+}
 /* SWIPER HEADER CSS */
 .swiper {
     width: 100%;
     height: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-  }
+}
 
-  .swiper-slide {
+.swiper-slide {
     background-position: center;
     background-size: cover;
     width: 300px;
-  }
+}
 
-  .swiper-slide img {
+.swiper-slide img {
     width: 228px;
     height: 170px;
     display: block;
     width: 100%;
-  }
+}
 
 
-  /* SEZIONE ULTIMI FILM DELLA WELCOME */
+/* SEZIONE ULTIMI FILM DELLA WELCOME */
 .bg-lastfilm{
     background-color: #020201;
 }
@@ -102,9 +100,9 @@ CREATE_PRODUCT_PAGE CSS
 }
 /* Stile generico per tutti gli input */
 input {
-   width: 100%;
-   box-sizing: border-box;
-   padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
 }
 /* Stile specifico per il menu a discesa (select) */
 select {
@@ -146,8 +144,8 @@ REGISTER FORM CSS
 LOGIN FORM CSS
 ----------------------*/
 .spanAccount{
-font-weight: 100;
-font-size: 12px;
+    font-weight: 100;
+    font-size: 12px;
 }
 .inputLogin{
     width: 48vh !important;
@@ -166,7 +164,7 @@ DATABASE INDEX CSS
     align-content: flex-start;
 }
 .database-column{
-height: 5vh;
+    height: 5vh;
 }
 .db-content{
     font-size: 2vh;
