@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container-xl">
     <a class="navbar-brand" href="{{route('welcome')}}">
-      <img src="media/logo.png" alt="" class="navbar-logo me-5">
+      <img src="{{asset('media/logo.png') }}" alt="" class="navbar-logo me-5">
     </a>
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navcomingsoon" aria-controls="navcomingsoon" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,8 +32,13 @@
               <a class="mt-2 nav-link {{Route::is('create_product') ? "active" : ""}}" href="{{route('create_product')}}">
                 Aggiungi Prodotto</a>
               </li>
+
+              <li class="nav-item">
+                <a class="mt-2 nav-link {{Route::is('products_index') ? "active" : ""}}" href="{{route('products_index')}}">
+                 Database Prodotti</a>
+                </li>
             </ul>
-          </li>
+            </li>
           @endif
         </ul>
 

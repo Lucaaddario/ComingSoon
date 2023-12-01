@@ -12,8 +12,8 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except('films_index');
-        $this->middleware('auth')->except('films_index');
+        $this->middleware('admin')->except('films_index' , 'series_index' , 'anime_index');
+        $this->middleware('auth')->except('films_index' , 'series_index' , 'anime_index');
     }
 
     //Funzione della rotta films_index
@@ -29,7 +29,7 @@ class ProductController extends Controller
             return $film->subcategories->contains('name' , 'Comedy');
         });
         $filmsByThriller = $productsByFilms->filter(function ($film) {
-             return $film->subcategories->contains('name' , 'Thriller');
+            return $film->subcategories->contains('name' , 'Thriller');
         });
         $filmsByErotic = $productsByFilms->filter(function($film) {
             return $film->subcategories->contains('name' , 'Eroitc');
@@ -59,7 +59,7 @@ class ProductController extends Controller
             return $serie->subcategories->contains('name' , 'Comedy');
         });
         $seriesByThriller = $productsBySeries->filter(function ($serie) {
-             return $serie->subcategories->contains('name' , 'Thriller');
+            return $serie->subcategories->contains('name' , 'Thriller');
         });
         $seriesByErotic = $productsBySeries->filter(function($serie) {
             return $serie->subcategories->contains('name' , 'Eroitc');
@@ -89,7 +89,7 @@ class ProductController extends Controller
             return $anime->subcategories->contains('name' , 'Comedy');
         });
         $animeByThriller = $productsByAnime->filter(function ($anime) {
-             return $anime->subcategories->contains('name' , 'Thriller');
+            return $anime->subcategories->contains('name' , 'Thriller');
         });
         $animeByErotic = $productsByAnime->filter(function($anime) {
             return $anime->subcategories->contains('name' , 'Eroitc');
@@ -111,6 +111,36 @@ class ProductController extends Controller
         $subcategories = Subcategory::all();
         return view('create_product' , compact('subcategories'));
     }
+
+    //Funzione dell'edit del prodotto
+    public function edit_product(Product $product){
+        $subcategories = Subcategory::all();
+        return view('edit_product' , compact('subcategories' , 'product'));
+    }
+
+    //Funzione dell'update del prodotto
+    public function update_product(Request $request , Product $product){
+        $product->update([
+            $product->title = $request->title,
+            $product->category = $request->category,
+            $product->description = $request->description,
+        ]);
+        if($request->image){
+            $product->image = $request->file('image')->store('public/products/image');
+            $product->save();
+        }
+        $product->subcategories()->sync($request->subcategories);
+
+        return redirect(route('products_index'));
+    }
+
+        //Funzione dell'update del prodotto
+        public function delete_product(Product $product){
+            $product->subcategories()->detach();
+            $product->delete();
+            return redirect(route('products_index'));
+        }
+
 
     //Funzione della creazione del prodotto
     public function store_product(ProductRequest $request){
