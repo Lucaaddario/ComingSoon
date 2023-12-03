@@ -1,6 +1,6 @@
 <x-layout>
     {{-- INIZIO FORM STRUCTURE --}}
-    <section class="container-fluid bg-dark d-flex align-items-center justify-content-center p-lg-5">
+    <section class="container-fluid bg-dark d-flex align-items-center justify-content-center p-lg-5 min-vh-100 ">
         <div class="row database-row p-4 p-lg-5 fs-4 rounded-3 flex-row ">
             <div class="col-12 text-white mb-0 database-column mb-4 text-uppercase">Database Utenti</div>
             <div class="row">

@@ -3,7 +3,7 @@
     <header class="p-3 bg-dark container-fluid vh-100">
         <div class="row mt-4 pricing-header mx-auto text-center text-white justify-content-center">
             <div class="col-12">
-                <h1 class="display-6 display-md fw-normal text-uppercase headerpremium">Il tuo profilo</h1>
+                <h1 class="display-6 display-md fw-normal text-uppercase headerpremium">@if(Auth::user() && Auth::user()->username === $user->username) Il tuo profilo @else Il profilo di {{$user->username}}@endif</h1>
             </div>
         </div>
 

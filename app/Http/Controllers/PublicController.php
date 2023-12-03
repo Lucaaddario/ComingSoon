@@ -37,7 +37,13 @@ class PublicController extends Controller
     //Funzione per la rotta 'Profile_Username':
     public function profile_username($username) {
         $user = User::where('username' , $username)->first();
-        return view('profile_username' , compact('user'));
+        if ($user) {
+            // L'utente esiste, mostra la vista
+            return view('profile_username' , compact('user'));
+        } else {
+            // L'utente non esiste, gestisci l'errore come desiderato
+            abort(404); // Puoi restituire una pagina 404 o fare altro in base alle tue esigenze
+        }
     }
 
     //Funzione per la rotta Profile_Edit
