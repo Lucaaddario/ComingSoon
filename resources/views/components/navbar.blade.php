@@ -70,7 +70,9 @@
             @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-user ms-2 ms-lg-2 mt-3 mt-lg-0 ms-lg-0 me-2 text-white "></i>
+                <span class="me-1">
+                  <img src="{{Storage::url(Auth::user()->image)}}" alt="" class="rounded-5 prof-icon">
+                </span>
                 @if (Auth::user()->gender === 'M')
                 Benvenuto {{Auth::user()->username}}
                 @else

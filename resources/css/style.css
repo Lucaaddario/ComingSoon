@@ -32,6 +32,12 @@ NAVBAR COMPONENTS CSS
 .btn-logout{
     text-decoration: none !important;
 }
+.prof-icon{
+    height: 4vh;
+    width: 4vh;
+    position: relative;
+    bottom: 0.2vh;
+}
 
 
 
@@ -109,6 +115,7 @@ CREATE_PRODUCT_PAGE CSS
     min-height: 70vh;
     background-color: #16191b;
 }
+
 /* Stile generico per tutti gli input */
 input {
     width: 100%;
@@ -181,8 +188,9 @@ DATABASE INDEX CSS
     font-size: 2vh;
 }
 .edit_form_img{
-    height: 10vh;
-    object-fit: cover;
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50% !important;
 }
 
 
@@ -200,7 +208,7 @@ Premium Index
 
 .premiumcol{
     min-height: 45vh;
-    max-height: 55vh;
+
 }
 .ul-premium{
     position:relative;
@@ -209,7 +217,31 @@ Premium Index
 .card {
     border: none;
 }
+.iconaPremium{
+
+position: absolute;
+left: 30%;
+}
+.iconaPremiumX{
+
+    position: absolute;
+    left: 30.5%;
+    }
 
 /*----------
 Update User
 -----------*/
+.profileImage{
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50% !important;
+    margin-top: 4vh;
+}
+
+/*----------
+Icon Premium
+-----------*/
+.fa-check{
+color: green;}
+.fa-x{
+    color: red;}

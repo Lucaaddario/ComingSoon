@@ -70,6 +70,15 @@
                         <label for="password_confirmation" class="text-light mb-1 d-block">Conferma Password</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" class="" placeholder="Password">
                     </div>
+                    {{-- IMAGE PREVIEW --}}
+                    <div class="d-flex justify-content-center mt-3">
+                        <img src="{{Storage::url($user->image)}}" alt="" class="edit_form_img rounded-5 ">
+                    </div>
+                    {{-- IMMAGINE INPUT --}}
+                    <div class="mt-3 d-flex justify-content-center bg-dark">
+                        <label for="image" class="text-light mb-1 d-block"></label>
+                        <input type="file" name="image" id="image" class="text-center">
+                    </div>
                     {{-- SUBMIT BUTTON --}}
                     <div class="mt-3 d-flex justify-content-center mt-5">
                         <button type="submit" class="btn btn-success px-4 py-3 mx-0 mx-lg-3 mt-lg-0 ms-1 w-75">

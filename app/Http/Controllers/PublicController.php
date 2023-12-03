@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
@@ -12,7 +13,7 @@ class PublicController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('welcome' , 'premium_index');
-        $this->middleware('admin')->except('welcome' , 'premium_index' , 'user_profile');
+        $this->middleware('admin')->except('welcome' , 'premium_index' , 'users_profile' , 'edit_profile', 'update_profile');
     }
 
     //Funzione per la rotta 'Index':
@@ -29,9 +30,39 @@ class PublicController extends Controller
         return view('premium_index');
     }
 
-    //Funzione per la rotta 'Premium_Index':
+    //Funzione per la rotta 'User_Profile':
     public function users_profile() {
         return view('users_profile');
+    }
+
+    //Funzione per la rotta Profile_Edit
+    public function edit_profile(){
+        return view('edit_profile');
+    }
+
+    //Funzione per la rotta 'Users_Update':
+    public function update_profile (Request $request) {
+        $user = Auth::user();
+        /*errore finto*/ $user->update([
+            $user->name =  $request->name,
+            $user->surname =  $request->surname,
+            $user->username = $request->username,
+            $user->gender = $request->gender,
+            $user->birthday = $request->birthday,
+            $user->email = $request->email,
+        ]);
+
+        if ($request->password){
+            $user->password = $request->password;
+        /*errore finto*/    $user->save();
+        }
+        if($request->image){
+            $user->image = $request->file('image')->store('public/users_image/img');
+            $user->save();
+        }
+
+        return redirect(route('users_profile'));
+
     }
 
     //Funzione per la rotta 'Users_Index':
@@ -54,8 +85,15 @@ class PublicController extends Controller
             $user->birthday = $request->birthday,
             $user->gender = $request->gender,
             $user->email =  $request->email,
-            $user->password = $request->password,
         ]);
+        if($request->password){
+            $user->password = $request->password;
+            $user->save();
+        }
+        if($request->image){
+            $user->image = $request->file('image')->store('public/users_image/img');
+            $user->save();
+        }
         return redirect(route('users_index' , compact('user')));
     }
 

@@ -1,12 +1,12 @@
 <x-layout>
     {{-- INIZIO SEZIONE FORM --}}
-    <section class="container-fluid bg-dark vh-100 d-flex align-items-center justify-content-center">
+    <section class="container-fluid bg-dark d-flex align-items-center justify-content-center  sectioncreate">
         <div class="row justify-content-center p-5">
             {{-- CREAZIONE COLONNA NERA FORM --}}
-            <div class="col-12 p-5 rounded-4 form-column">
+            <div class="col-12 p-5 rounded-4 form-column my-5">
                 <div class="row">
                     {{-- TITOLO DEL FORM --}}
-                    <div class="col-12">
+                    <div class="col-12 ">
                         <h1 class="fs-4 text-light text-uppercase mb-3">crea prodotto</h1>
                     </div>
                 </div>{{-- INIZIO FORM STRUCTURE --}}

@@ -13,6 +13,13 @@
                     È fantastico averti qui. Questo è il tuo spazio personale, dove puoi gestire le tue informazioni e interagire con il nostro sito.
                     Se hai domande o hai bisogno di assistenza, non esitare a contattarci. Siamo qui per aiutarti a rendere la tua esperienza sul nostro sito piacevole e soddisfacente.
                     Grazie per essere parte della nostra comunità!
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center text-center">
+            <div class="col-12 col-md-10 col-lg-5 ">
+                <img src="{{Storage::url(Auth::user()->image)}}" alt="" class="profileImage ">
                 </div>
             </div>
 
@@ -84,8 +91,10 @@
                 </div>
 
                 <div class="col-12 col-md-10 col-lg-5 mt-5 ">
-                    <a href="">
+                    <a href="{{route('edit_profile')}}" class="text-decoration-none me-3">
                         <button class="btn btn-warning">Modifica Profilo</button>
+                    </a>
+                    <a href="">
                         <button class="btn btn-danger">Elimina Profilo</button>
                     </a>
                 </div>
