@@ -7,6 +7,9 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [PublicController::class , 'welcome'])->name('welcome');
 
+//Rotta premium_index
+Route::get('/premium' ,[PublicController::class , 'premium_index'])->name('premium_index');
+
 //Rotte dei prodotti (Film, anime, serie TV)
 Route::get('/crea-prodotto' , [ProductController::class , 'create_product'])->name('create_product');
 Route::post('/store-prodotto' , [ProductController::class , 'store_product'])->name('store_product');
@@ -25,3 +28,18 @@ Route::get('/anime' , [ProductController::class , 'anime_index'])->name('anime_i
 
 //Rotta del database Prodotti_Index
 Route::get('/database-prodotti' , [PublicController::class , 'products_index'])->name('products_index');
+
+//Rotta del database Utente_Index
+Route::get('/database-utente' , [PublicController::class , 'users_index'])->name('users_index');
+
+//Rotta del database Delete_Users
+Route::delete('/elimina-utente/{user}' , [PublicController::class , 'users_delete'])->name('users_delete');
+
+//Rotta del database Update_Users
+Route::get('/modifica-utente/{user}' , [PublicController::class , 'users_edit'])->name('users_edit');
+Route::put('/update-utente/{user}' , [PublicController::class , 'users_update'])->name('users_update');
+
+//Rotta del database Promote_Users
+Route::put('/promuovi-utente/{user}' , [PublicController::class , 'users_promote'])->name('users_promote');
+//Rotta del database Demote_Users
+Route::put('/declassa-utente/{user}' , [PublicController::class , 'users_demote'])->name('users_demote');

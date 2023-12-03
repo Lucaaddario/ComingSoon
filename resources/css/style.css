@@ -84,6 +84,12 @@ HEADER COMPONENTS CSS
     height: 170px;
     display: block;
     width: 100%;
+    transition: all 0.4s;
+}
+
+.swiper-slide img {
+    transform: translateY(-10px);
+    transform: scale(0.9);
 }
 
 
@@ -178,3 +184,32 @@ DATABASE INDEX CSS
     height: 10vh;
     object-fit: cover;
 }
+
+
+/*----------
+Premium Index
+-----------*/
+@media screen and (max-width:550px) {
+    .headerpremium{
+        font-size: 3vh;
+    }
+    .ppremium{
+        font-size: 3vh;
+    }
+}
+
+.premiumcol{
+    min-height: 45vh;
+    max-height: 55vh;
+}
+.ul-premium{
+    position:relative;
+    top: 2vh;
+}
+.card {
+    border: none;
+}
+
+/*----------
+Update User
+-----------*/

@@ -1,6 +1,6 @@
 
 //SWIPER CAROUSEL WELCOME
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper(".mySwiperSecond", {
   effect: "coverflow",
   grabCursor: true,
   centeredSlides: false,
@@ -14,6 +14,20 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
+var swiper = new Swiper(".mySwiperFirst", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: false,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 0,
+    modifier: 1,
+    slideShadows: true,
+  },
+});
+
 /*------------------
 Header Dinamico
 -------------------*/
@@ -21,6 +35,7 @@ Header Dinamico
 const titleLinkElements = document.querySelectorAll('#swiperData');
 //Cattura del titolo, sottotitolo e contenuto dell'header
 let titleHeader = document.querySelector('#titleHeader');
+let contentHeader = document.querySelector('#contentHeader');
 
 //ForEach di tutti i links
 titleLinkElements.forEach((link)=> {

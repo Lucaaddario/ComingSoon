@@ -21,6 +21,9 @@
         <li class="nav-item">
           <a class="nav-link {{Route::is('anime_index') ? "active" : ""}}" href="{{route('anime_index')}}">Anime</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{Route::is('premium_index') ? "active" : ""}}" href="{{route('premium_index')}}">Premium</a>
+        </li>
 
         @if (Auth::user() && Auth::user()->isAdmin === 1)
         <li class="nav-item dropdown">
@@ -35,56 +38,65 @@
 
               <li class="nav-item">
                 <a class="mt-2 nav-link {{Route::is('products_index') ? "active" : ""}}" href="{{route('products_index')}}">
-                 Database Prodotti</a>
+                  Database Prodotti</a>
                 </li>
-            </ul>
+
+                <li class="nav-item">
+                  <a class="mt-2 nav-link {{Route::is('users_index') ? "active" : ""}}" href="{{route('users_index')}}">
+                    Database Utenti</a>
+                  </li>
+              </ul>
             </li>
-          @endif
-        </ul>
+            @endif
+          </ul>
 
 
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-2 ms-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-2 ms-lg-0">
 
-          @guest
-          <a href="{{route('login')}}">
-            <button type="button" class="btn btn-navbar px-4 py-1 btn-success mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1">
-              Accedi
-            </button>
-          </a>
-
-          <a href="{{route('register')}}">
-            <button type="button" class="btn btn-navbar px-4 py-1 btn-success mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1">
-              Registrati
-            </button>
-          </a>
-          @endguest
-
-          @auth
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-user ms-2 ms-lg-2 mt-3 mt-lg-0 ms-lg-0 me-2 text-white "></i>
-              Benvenuto {{Auth::user()->username}}
+            @guest
+            <a href="{{route('login')}}">
+              <button type="button" class="btn btn-navbar px-4 py-1 btn-success mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1">
+                Accedi
+              </button>
             </a>
-            <ul class="dropdown-menu bg-dark border-0 rounded-2">
-              <li class="nav-item">
-                <a class="mt-1 nav-link ms-2 ms-lg-0" href="#">
-                  Profilo
-                </a>
-              </li>
 
-              <li class="nav-item">
-                <form method="POST" action="{{route('logout')}}">
-                  @csrf
+            <a href="{{route('register')}}">
+              <button type="button" class="btn btn-navbar px-4 py-1 btn-success mx-0 mx-lg-3 mt-1 mt-lg-0 ms-1">
+                Registrati
+              </button>
+            </a>
+            @endguest
+
+            @auth
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user ms-2 ms-lg-2 mt-3 mt-lg-0 ms-lg-0 me-2 text-white "></i>
+                @if (Auth::user()->gender === 'M')
+                Benvenuto {{Auth::user()->username}}
+                @else
+                Benvenuta {{Auth::user()->username}}
+                @endif
+              </a>
+              <ul class="dropdown-menu bg-dark border-0 rounded-2">
+                <li class="nav-item">
+                  <a class="mt-1 nav-link ms-2 ms-lg-0" href="#">
+                    Profilo
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <form method="POST" action="{{route('logout')}}">
+                    @csrf
                     <button type="submit" class="ms-2 ms-lg-0 bg-dark nav-link border-none fw-bold" >
                       Logout
                     </button>
-                </form>
-              </li>
-            </ul>
-          </li>
-          @endauth
+                  </form>
+                </li>
+              </ul>
+            </li>
+            @endauth
+          </ul>
         </ul>
-      </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
