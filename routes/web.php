@@ -48,3 +48,4 @@ Route::put('/declassa-utente/{user}' , [PublicController::class , 'users_demote'
 Route::get('/profilo' ,[PublicController::class , 'users_profile'])->name('users_profile');
 Route::get('/modifica-profilo' , [PublicController::class , 'edit_profile'])->name('edit_profile');
 Route::put('/update-profilo' , [PublicController::class , 'update_profile'])->name('update_profile');
+Route::get('/profile/{username}' , [PublicController::class , 'profile_username'])->name('profile_username');

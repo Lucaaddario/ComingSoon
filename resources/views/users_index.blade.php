@@ -22,6 +22,13 @@
                                         <button class="btn btn-success rounded-0 btn-promote">Modifica</button>
                                     </a>
                                 </div>
+
+                                <div class="me-3">
+                                    <a href="{{route('profile_username' , ['username' => $user->username])}}">
+                                        <button class="btn btn-success rounded-0 btn-promote">Profilo</button>
+                                    </a>
+                                </div>
+
                                 <div class="me-3">
                                     @if ($user->isAdmin === 0 )
                                     <form method="POST" action="{{route('users_promote' , compact('user'))}}" class="">
@@ -37,6 +44,7 @@
                                     </form>
                                     @endif
                                 </div>
+
                                 <div>
                                     <form method="POST" action="{{route('users_delete' , compact('user'))}}" class="">
                                         @csrf
@@ -44,7 +52,8 @@
                                         <button class="btn btn-danger btn-promote rounded-0">Elimina</button>
                                     </form>
                                 </div>
-                            </div>
+
+
                         </div>
                     </div>
                     @endforeach

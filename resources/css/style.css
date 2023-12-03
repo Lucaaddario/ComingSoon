@@ -232,8 +232,8 @@ left: 30%;
 Update User
 -----------*/
 .profileImage{
-    height: 20vh;
-    width: 20vh;
+    height: 15vh;
+    width: 15vh;
     border-radius: 50% !important;
     margin-top: 4vh;
 }

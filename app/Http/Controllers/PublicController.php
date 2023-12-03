@@ -12,8 +12,8 @@ class PublicController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('welcome' , 'premium_index');
-        $this->middleware('admin')->except('welcome' , 'premium_index' , 'users_profile' , 'edit_profile', 'update_profile');
+        $this->middleware('auth')->except('welcome' , 'premium_index', 'profile_username');
+        $this->middleware('admin')->except('welcome' , 'premium_index' , 'users_profile' , 'edit_profile', 'update_profile' , 'profile_username');
     }
 
     //Funzione per la rotta 'Index':
@@ -33,6 +33,11 @@ class PublicController extends Controller
     //Funzione per la rotta 'User_Profile':
     public function users_profile() {
         return view('users_profile');
+    }
+    //Funzione per la rotta 'Profile_Username':
+    public function profile_username($username) {
+        $user = User::where('username' , $username)->first();
+        return view('profile_username' , compact('user'));
     }
 
     //Funzione per la rotta Profile_Edit

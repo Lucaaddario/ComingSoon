@@ -1,6 +1,6 @@
 <x-layout>
     {{-- INIZIO FORM STRUCTURE --}}
-    <section class="container-fluid bg-dark d-flex align-items-center justify-content-center ">
+    <section class="container-fluid bg-dark d-flex align-items-center justify-content-center vh-100 ">
         <div class="row justify-content-center p-5">
             {{-- CREAZIONE COLONNA NERA FORM --}}
             <div class="col-12 p-5 rounded-4 register-column">
