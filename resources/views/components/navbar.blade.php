@@ -79,7 +79,7 @@
               </a>
               <ul class="dropdown-menu bg-dark border-0 rounded-2">
                 <li class="nav-item">
-                  <a class="mt-1 nav-link ms-2 ms-lg-0" href="#">
+                  <a class="mt-1 nav-link ms-2 ms-lg-0" href="{{route('users_profile')}}">
                     Profilo
                   </a>
                 </li>

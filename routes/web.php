@@ -43,3 +43,6 @@ Route::put('/update-utente/{user}' , [PublicController::class , 'users_update'])
 Route::put('/promuovi-utente/{user}' , [PublicController::class , 'users_promote'])->name('users_promote');
 //Rotta del database Demote_Users
 Route::put('/declassa-utente/{user}' , [PublicController::class , 'users_demote'])->name('users_demote');
+
+//Rotta della pagina profilo_utente
+Route::get('/profilo' ,[PublicController::class , 'users_profile'])->name('users_profile');

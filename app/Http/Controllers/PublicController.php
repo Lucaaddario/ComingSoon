@@ -12,7 +12,7 @@ class PublicController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('welcome' , 'premium_index');
-        $this->middleware('admin')->except('welcome' , 'premium_index');
+        $this->middleware('admin')->except('welcome' , 'premium_index' , 'user_profile');
     }
 
     //Funzione per la rotta 'Index':
@@ -27,6 +27,11 @@ class PublicController extends Controller
     //Funzione per la rotta 'Premium_Index':
     public function premium_index() {
         return view('premium_index');
+    }
+
+    //Funzione per la rotta 'Premium_Index':
+    public function users_profile() {
+        return view('users_profile');
     }
 
     //Funzione per la rotta 'Users_Index':
